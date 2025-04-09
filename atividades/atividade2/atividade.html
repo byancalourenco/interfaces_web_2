@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atividade de iw 2</title>
+</head>
+<body>
+    <h1>atividade de iw 2</h1>
+    <ul>
+        <li>Aprovado: 7 a 10</li>
+        <li>Recuperação: 5 a 6.9</li>
+        <li>Reprovado: 0 a 4.9</li>
+    </ul>
+    <script>
+
+        // função: mostrar as opções
+        function mostrarOpcoes() {
+            return prompt(
+                "Atividade de IW2\nO que você deseja fazer?\n1 - Calcular a média\n2 - Sair"
+            );
+        }
+
+        // função: fazer o que foi pedido
+        function fazerOpcao(opcao){
+            switch (opcao) {
+                case "1":
+                    let nota1 = parseFloat(prompt("Digite a primeira nota: "));
+                    let nota2 = parseFloat(prompt("Digite a segunda nota: "));
+                    if (nota1 < 0 || nota1 > 10 || nota2 < 0 || nota2 > 10){
+                        alert("Nota inválida! Tente novamente.");
+                    }else{
+                        let media = (nota1 + nota2) / 2;
+                        if (media >= 7) {
+                            alert("Aprovado! Sua média é " + media);
+                        }else if (media >= 5 && media < 7) {
+                            alert("Recuperação! Sua média é " + media);
+                        }else{
+                            alert("Reprovado! Sua média é " + media);
+                        }
+                    }
+                    break;
+                case "2":
+                    alert("Saindo!");
+                    return false;
+                    break;
+                default:
+                    alert("Número inválido!");
+            };
+            return true;
+        }
+
+        // função: iniciar o menu e o loop
+        function iniciarMenu(){
+            let continuarLoop = true;
+            while (continuarLoop == true) {
+                let opcao = mostrarOpcoes();
+                continuarLoop = fazerOpcao(opcao);
+            }
+        }
+
+        // função: mostra o menu
+        mostrarOpcoes();
+        iniciarMenu();
+
+    </script>
+</body>
+</html>
