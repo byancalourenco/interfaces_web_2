@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex1</title>
+</head>
+<body>
+    <h1>1. Par ou ímpar</h1>
+    <p>
+        Tarefa: <br>
+        Crie um programa que solicite ao usuário que insira um número. Seu programa deve então determinar se o número é par ou ímpar e exibir o resultado. 
+    </p>
+    <script>
+
+        // pedindo um número ao usuário, por meio do prompt
+        let num = parseFloat(prompt("Digite um número: "))
+
+        // verificando se é par ou ímpar
+        // se o resto da divisão por 2 der 0, é par, senão é ímpar
+        if (num % 2 == 0) {
+            alert("O número "+ num +" é par!");
+        }else{
+            alert("O número "+ num +" é ímpar!");
+        }
+        
+    </script>
+</body>
+</html>

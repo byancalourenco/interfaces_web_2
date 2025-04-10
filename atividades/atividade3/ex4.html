@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex4</title>
+</head>
+<body>
+    <h1>4. Contagem regressiva</h1>
+    <p>
+        Tarefa: <br>
+        Crie um programa que solicite ao usuário que insira um número. Seu programa deve exibir uma contagem regressiva desse número até 0 usando um loop WHILE. Cada número deve ser impresso em uma nova linha.
+    </p>
+    <script>
+
+        // pedindo o número para o usuário por meio do prompt
+        let num = parseFloat(prompt("Digite um número: "));
+
+        // criando o laço while
+        // enquanto num não for menor ou = a 0, ele tira um do num e mostra no console (sempre pulando a linha)
+        while (num >= 0) {
+            console.log(num+"\n");
+            num--;
+        }
+
+    </script>
+</body>
+</html>

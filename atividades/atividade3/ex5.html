@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex5</title>
+</head>
+<body>
+    <h1>5. Tabela de multiplicação</h1>
+    <p>
+        Tarefa: <br>
+        Escreva um programa que solicite que o usuário insira um número. O programa deve então exibir a tabuada de multiplicação para esse número, de 1 a 10, usando um loop FOR. Cada resultado deve ser claramente formatado.
+    </p>
+    <script>
+
+        // pedindo o número para o usuário por meio do prompt
+        let num = parseFloat(prompt("Digite um número: "));
+
+        // título da tabuada
+        console.log("Tabuada do "+ num +":\n");
+
+        // criando o laço for
+        // começa no 1, para quando chegar no 10 e a cada volta incrementa 1
+        // i é o número que será multiplicado pelo núemro escolhido pela pessoa
+        for (let i = 1; i <= 10; i++) {
+           console.log(num+" X "+ i +" = "+ num * i);
+        }
+
+    </script>
+</body>
+</html>

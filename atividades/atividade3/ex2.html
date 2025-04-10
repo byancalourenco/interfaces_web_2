@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex2</title>
+</head>
+<body>
+    <h1>2. Verificação de idade</h1>
+    <p>
+        Tarefa: <br>
+        Escreva um programa que solicite que o usuário insira sua idade. O programa deve verificar se o usuário tem 18 anos de idade ou mais e exibir uma mensagem indicando se ele é um adulto ou um menor.
+    </p>
+    <script>
+
+        // pedindo a idade do usuário por meio do prompt
+        let idade = parseFloat(prompt("Digite sua idade: "));
+
+        // verificando se o usuário tem mais de 18 ou não
+        //
+        if (idade >= 18) {
+            alert("Com "+ idade +" anos, você é maior de idade!");
+        }else{
+            alert("Com "+ idade +" anos, você é menor de idade!");
+        }
+
+    </script>
+</body>
+</html>
