@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sixtyfour+Convergence&display=swap');
+
+body{ 
+    font-family: "Poppins", sans-serif;
+    background: rgb(63,94,251);
+    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgb(0, 0, 247) 100%);
+}
+
+.container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: aliceblue;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+
+input{
+    width: 300px;
+    height: 20px;
+    margin-top: 10px;
+    display: flex;
+}
+
+label{
+    margin-top: 5px;
+}
+
+h1{
+    color: rgb(0, 0, 247);
+    text-align: center;
+}
+
+button{
+    background-color: rgb(0, 0, 247);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: aliceblue;
+    margin-top: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+#resultado{
+    background-color: rgb(63,94,251);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;
+    color: aliceblue;
+}
+
+div#resultado{
+    display: none;
+}
+
