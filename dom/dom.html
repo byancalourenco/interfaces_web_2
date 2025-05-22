@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios Aula 08</title>
+</head>
+<body>
+    <div>
+        <h1>Exercício 1</h1>    
+        <h2>Mudando a Cor do baackground</h2>
+        <button id= "mudarCor">Mudar Cor</button><hr>
+
+        <script>
+            document.getElementById("mudarCor").addEventListener("click", function () {
+                document.body.style.background = "#" + Math.floor(Math.random() * 16777215). toString(16);
+            });
+        </script>
+    </div>
+
+    <div>
+        <h1>Exercício 2</h1>    
+        <h2>Adicionando Itens a Lista</h2>
+
+        <input id="novoItem" placeholder="Novo Item">
+        <button id="add">Adicionar</button>
+        <ul id="lista"></ul><hr>
+
+        <script>
+            document.getElementById("add").addEventListener('click', function () {
+                const texto = document.getElementById("novoItem").value;
+                const li = document.createElement("li");
+                li.innerText = texto
+                document.getElementById("lista").appendChild(li);
+                document.getElementById("novoItem").value = "";
+                
+            });
+        </script>
+    </div>
+
+    <div>
+        <h1>Exercício 3</h1>    
+        <h2>Remover Itens da Lista</h2>
+
+        <ul id="lista">
+            <li>item1  <button class="remove">X</button></li>
+        </ul><hr>
+        <script>
+            document.addEventListener('click', function (e) {
+                if (e.target.classList.contains("remove")) {
+                    e.target.parentElement.remove(); 
+                        
+                }                    
+             });
+        </script>
+    </div>
+
+    <div>
+        <h1>Exercício 4</h1>    
+        <h2>Mostrar e Esconder um elemento ao passar o mouse</h2>
+
+        <div id="area" style="width: 200px; height: 100px; background: #ccc;">Passe o Mouse</div>
+        <p id="msg" style="display: none;">Você passou o mouse!!!</p><hr>
+
+        <script>
+            const area = document.getElementById("area");
+            const msg = document.getElementById("msg");
+
+            area.addEventListener('mouseenter',() => msg.style.display = "block");
+            area.addEventListener('mouseleave',() => msg.style.display = "none");
+        </script>   
+    </div>
+
+    <div>
+        <h1>Exercício 5</h1>    
+        <h2>Saudação Personalizada</h2>
+
+        <input id="nome" placeholder="Digite seu nome">
+        <button id="mostrarNome">Exibir</button>
+        <p id="saudacao"></p><hr>
+
+        <script>
+            document.getElementById("mostrarNome").addEventListener('click', function () {
+                const nome = document.getElementById("nome").value;
+                document.getElementById("saudacao").innerText = `Olá, seja bem vindo ${nome}!`;                
+            });
+        </script>
+    </div>
+
+    <div>
+        <h1>Exercício 6</h1>    
+        <h2>Menu Dropdown</h2>
+
+        <select id="menu"></select>
+        <button id="addOpcao"> Adicionar Opção</button><hr>
+
+        <script>
+            const menu = document.getElementById("menu");
+            let contador = 1; 
+            document.getElementById("addOpcao").addEventListener("click", () => {
+                const opcao = document.createElement("option");
+                opcao.text = "Opção" + contador++;
+                menu.add(opcao);
+            }); 
+        </script>
+    </div>
+
+    <div>
+        <h1>Exercício 7</h1>    
+        <h2>Validar Formulário</h2>
+
+        <input id="email" placeholder="Digite seu email">
+        <p id="feedback"></p><hr>
+
+        <script>
+            document.getElementById("email").addEventListener("input", function () {
+                const valor = this.value;
+                const feedback = document.getElementById("feedback");
+
+                if (valor.includes("@") && valor.includes(".")){
+                    feedback.innerText = "Email Válido";
+                    feedback.style.color = "green";
+                }else {
+                    feedback.innerText = "Email Inválido";
+                    feedback.style.color = "red ";
+                }
+
+            });
+        </script>
+
+    </div>
+
+    <div>
+        <h1>Exercício 8</h1>    
+        <h2>Elemento Animado</h2>
+
+        <div id="quad" style="width:100px; height:100px; background:rgb(212, 0, 255); position:relative;"></div>
+        <button id="mover">Mover</button><hr>
+
+        <script>
+            document.getElementById("mover").addEventListener("click", function () {
+            let pos = 0;
+            const box = document.getElementById("quad");
+            const intervalo = setInterval(function () {
+                if (pos >= 300) {
+                    clearInterval(intervalo);
+                } else {
+                    pos++;
+                    box.style.left = pos + "px";
+                }
+            }, 5);
+        });
+        </script>
+
+    </div>
+
+    <div>
+        <h1>Exercício 9</h1>    
+        <h2>Filtrar Lista</h2>
+
+        <input id="filtro" placeholder="Buscar..." />
+
+        <ul id="lista">
+            <li>Papel</li>
+            <li>Caneta</li>
+            <li>Tesoura</li>
+        </ul><hr>
+
+        <script>
+            document.getElementById("filtro").addEventListener("input", function () {
+                const termo = this.value.toLowerCase();
+                const items = document.querySelectorAll("#lista li");
+                
+                items.forEach((item) => {
+                    item.style.display = item.innerText.toLowerCase().includes(termo) ? "list-item" : "none";
+                });
+            });
+        </script>
+
+    </div>
+    
+    <div>
+        <h1>Exercício 10</h1>    
+        <h2>Carrossel</h2>
+    
+        <p>10. Criar carrossel simples de imagens</p>
+    
+        <img id="carrossel" src="img_carrossel/img1.jpg" width="300" />
+        <br>
+        <button id="anterior">Anterior</button>
+        <button id="proximo">Próximo</button>
+        
+        <script>
+            const imagens = [
+                "img_carrossel/img1.jpg",
+                "img_carrossel/img2.jpg",
+                "img_carrossel/img3.jpg",
+                "img_carrossel/img4.jpg",
+                "img_carrossel/img5.jpg"
+            ];
+    
+            let atual = 0;
+            const carrossel = document.getElementById("carrossel");
+    
+            document.getElementById("proximo").addEventListener("click", () => {
+                atual = (atual + 1) % imagens.length;
+                carrossel.src = imagens[atual];
+            });
+    
+            document.getElementById("anterior").addEventListener("click", () => {
+                atual = (atual - 1 + imagens.length) % imagens.length;
+                carrossel.src = imagens[atual];
+            });
+        </script>        
+    
+    </div>
+    
+
+
+</body>
+</html>

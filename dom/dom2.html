@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 09</title>
+</head>
+<body>
+    <h1>Lista de Exercícios Aula 09</h1><hr>
+
+    <div>
+        <h1>Exercício 1</h1>
+        <h2>Exibir Horário</h2>
+
+        <button id="exibirHora">Horário atual</button>
+        <p id="hora"></p><hr>
+
+        <script>
+            document.getElementById("exibirHora").addEventListener("click", function() {
+                const agora = new Date();
+                const horaFormatada = agora.toLocaleTimeString();
+                document.getElementById("hora").innerText = "Hora atual: " + horaFormatada;
+            });
+        </script>
+
+    </div>
+
+    <div>
+        <h1>Exercício 2</h1>
+        <h2>Tema Claro ou Escuro</h2>
+
+        <style>                 
+            body.dark-mode {
+              background-color: #121212;
+              color: white;
+            }        
+        </style>      
+          
+        <button id="toggleTheme">
+            <span class="icon">🌙</span>
+            <span>Trocar Tema</span>
+        </button><hr>
+        
+        <script>
+            const button = document.getElementById('toggleTheme');
+            const icon = button.querySelector('.icon');
+        
+            button.addEventListener('click', () => {
+              document.body.classList.toggle('dark-mode');
+        
+            if (document.body.classList.contains('dark-mode')) {
+                icon.textContent = '☀️';
+              } else {
+                icon.textContent = '🌙';
+              }
+            });
+        </script>
+    </div>
+
+    <div>        
+        <h1>Exercício 3</h1>
+        <h2>Curtidas 💖</h2>
+
+
+        <button id="coraButton">
+            <span>❤️</span>
+            <span class="count" id="coraCount">0</span>
+        </button><hr>
+
+        <script>
+            const coraButton = document.getElementById('coraButton');
+            const coraCount = document.getElementById('coraCount');
+
+            coraButton.addEventListener('click', () => {
+            // Aumentar o contador
+            let count = parseInt(coraCount.textContent);
+            count++;
+            coraCount.textContent = count;            
+            });
+        </script>
+    </div>
+
+    <div>
+        <h1>Exercício 4</h1>
+        <h2>Foco</h2>
+
+        <input type="text" id="campo" placeholder="Digite algo!!!"><hr>
+
+        <script>
+        const campo = document.getElementById('campo');
+
+        campo.addEventListener('blur', function() {
+            if (campo.value === '') {
+            alert('Preencha este campo!');
+            }else{
+                alert('Continue com foco');
+            }
+            });
+        </script>
+    </div>
+    
+    <div>
+        <h1>Exercício 5</h1>
+        <h2>Exibir e Esconder Texto com Efeito</h2>
+    
+        <style>            
+            #paragrafoEx5 {
+                overflow: hidden;
+                max-height: 0;  
+                transition: max-height 0.5s ease;
+            }
+        </style>    
+    
+        <button id="toggleEx5">Mostrar/Esconder</button>
+        <p id="paragrafoEx5">Clique para esconder texto</p><hr>
+    
+        <script>            
+            const paragrafoEx5 = document.getElementById('paragrafoEx5');
+            const buttonEx5 = document.getElementById('toggleEx5');
+    
+            buttonEx5.addEventListener('click', function() {
+                if (paragrafoEx5.style.maxHeight === '0px' || paragrafoEx5.style.maxHeight === '') {
+                    paragrafoEx5.style.maxHeight = paragrafoEx5.scrollHeight + 'px'; 
+                } else {
+                    paragrafoEx5.style.maxHeight = '0'; 
+                }
+            });
+        </script>
+    </div>  
+    
+    <div>
+        <h1>Exercício 6</h1>
+        <h2>Copiar Conteúdo</h2>
+    
+        <div id="conteudo">
+          texto blablabla
+        </div>
+        
+        <button id="copiar">Copiar Texto</button><hr>
+        
+        <script>
+            const botao = document.getElementById('copiar');
+            const conteudo = document.getElementById('conteudo');
+    
+            botao.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(conteudo.textContent);
+                    alert('Texto copiado!');
+                } catch (err) {
+                    alert('Erro ao copiar texto: ' + err);
+                }
+            });
+        </script>
+    </div>
+
+    <div>
+        <h1>Exercício 7</h1>
+        <h2>Borda Vermelha</h2>
+    
+        <style>        
+            .erro {
+                border: 2px solid red;
+            }
+        </style>
+
+        <label for="campoTexto">Digite algo (mínimo 5 caracteres):</label>
+        <input type="text" id="campoTexto" placeholder="Digite aqui..." /><hr>
+
+        <script>
+            const campoTexto = document.getElementById('campoTexto');
+
+            campoTexto.addEventListener('input', function() {
+                if (campoTexto.value.length < 5) {
+                    campoTexto.classList.add('erro'); 
+                } else {
+                    campoTexto.classList.remove('erro'); 
+                }
+            });
+        </script>
+    </div>
+
+    <div>
+        <h1>Exercício 8</h1>
+        <h2>Gerar Quadrados Coloridos</h2>
+
+        <style>
+            #container {
+                display: flex;
+                gap: 10px;            
+                margin-top: 20px;
+            }
+            .quadrado {
+                width: 50px;
+                height: 50px;
+            }
+        </style>
+        
+        <button id="gerarQuadrados">Gerar Quadrados</button>
+
+        <div id="container"></div><hr>
+
+        <script>
+            document.getElementById('gerarQuadrados').addEventListener('click', function() {
+                const container = document.getElementById('container');
+                container.innerHTML = ''; 
+
+                for (let i = 0; i < 5; i++) {
+                    const quadrado = document.createElement('div');
+                    quadrado.classList.add('quadrado');
+                    
+                    const corAleatoria = '#' + Math.floor(Math.random() * 16777215).toString(16);
+                    quadrado.style.backgroundColor = corAleatoria;
+                    
+                    container.appendChild(quadrado);
+                }
+            });
+        </script>
+    </div>
+
+    <div>
+        <h1>Exercício 9</h1>
+        <h2>Upload de Imagem</h2>
+        
+        <input type="file" id="upload" accept="image/*">
+        <br>
+        <img id="preview" src="" alt="Pré-visualização" style="max-width: 300px; margin-top: 20px; display: none;"><hr>
+
+        <script>
+            const uploadInput = document.getElementById('upload');
+            const previewImage = document.getElementById('preview');
+
+            uploadInput.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(event) {
+                        previewImage.src = event.target.result; 
+                        previewImage.style.display = 'block'; 
+                    };
+                    
+                    reader.readAsDataURL(file);
+                }
+            });
+        </script>
+    </div>
+
+    <div>
+        <h1>Exercício 10</h1>
+        <h2>Lista de Itens Móveis</h2>        
+
+        <ul id="itemList">
+            <li>
+                Item 1
+                <div>
+                    <button class="moveUp">↑</button>
+                    <button class="moveDown">↓</button>
+                </div>
+            </li>
+            <li>
+                Item 2
+                <div>
+                    <button class="moveUp">↑</button>
+                    <button class="moveDown">↓</button>
+                </div>
+            </li>
+            <li>
+                Item 3
+                <div>
+                    <button class="moveUp">↑</button>
+                    <button class="moveDown">↓</button>
+                </div>
+            </li>
+            <li>
+                Item 4
+                <div>
+                    <button class="moveUp">↑</button>
+                    <button class="moveDown">↓</button>
+                </div>
+            </li>
+        </ul>
+
+        <script>
+            // Função para mover o item para cima
+            function moveUp(item) {
+                const previous = item.previousElementSibling;
+                if (previous) {
+                    item.parentNode.insertBefore(item, previous);
+                }
+            }
+
+            // Função para mover o item para baixo
+            function moveDown(item) {
+                const next = item.nextElementSibling;
+                if (next) {
+                    item.parentNode.insertBefore(next, item);
+                }
+            }
+
+            // Adicionando os eventos de clique nos botões
+            const moveUpButtons = document.querySelectorAll('.moveUp');
+            const moveDownButtons = document.querySelectorAll('.moveDown');
+
+            moveUpButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const item = this.parentElement.parentElement;
+                    moveUp(item);
+                });
+            });
+
+            moveDownButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const item = this.parentElement.parentElement;
+                    moveDown(item);
+                });
+            });
+        </script>
+    </div> 
+
+
+</body>
+</html>
